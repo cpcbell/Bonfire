@@ -150,7 +150,7 @@ class Activity_model extends BF_Model
                             ))
                     ->where("{$this->table_name}.{$this->deleted_field}", 0)
                     ->join($usersTable, "{$this->table_name}.user_id = {$usersTable}.{$usersKey}", 'left')
-                    ->group_by('user_id')
+                    ->group_by('user_id,username')
                     ->order_by('activity_count', 'desc')
                     ->limit($limit)
                     ->find_all();
